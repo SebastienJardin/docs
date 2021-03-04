@@ -52,6 +52,7 @@ To do this, please refer to our guides on [Changing user rights](../change-users
 ##### **Key Management Server (KMS)**
 
 If virtual machines are protected by encryption and this is a prerequisite for the destination Managed Bare Metal, it will be necessary to recreate the encryption context on that destination infrastructure.
+
 Please refer to our guide on [Enabling Virtual Machine Encryption](../vm-encrypt/) in order to enable KMS on the destination Managed Bare Metal.
 
 #### Network
