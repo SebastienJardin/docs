@@ -66,7 +66,7 @@ Lesen Sie unsere Anleitung zur [Aktivierung der Verschlüsselung von virtuellen 
 > VMnetworks aus derselben Region können nicht in einem vRack untereinander verbunden werden.
 >
 
-Im Rahmen einer Migration können Sie Ihre Managed Bare Metal Dienste mit demselben vRack verbinden. Lesen Sie unsere Anleitung zur [Verwendung von Managed Bare Metal in einem vRack](../managed-bare-metal-vrack/).
+Im Rahmen einer Migration können Sie Ihre Managed Bare Metal Dienste mit demselben vRack verbinden. Lesen Sie unsere Anleitung zur [Verwendung von Managed Bare Metal in einem vRack](../vrack-essentials/).
 
 ##### **Öffentliches Netzwerk**
 
