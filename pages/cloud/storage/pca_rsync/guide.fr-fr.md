@@ -9,7 +9,7 @@ section: Public Cloud Archive
 
 ## Objectif
 
-OVHcloud Public Cloud Archive est une solution de stockage gérée principalement par via l'API OpenStack. Cependant, nous avons développé une passerelle qui permet de se connecter à votre conteneur PCA avec Rsync.
+OVHcloud Public Cloud Archive est une solution de stockage gérée principalement via l'API OpenStack. Nous avons cependant développé une passerelle qui permet de se connecter à votre conteneur PCA avec Rsync.
 
 **Découvrez les informations nécessaires pour activer la connexion à vos données stockées à l'aide de Rsync.**
 
@@ -22,13 +22,13 @@ Les fichiers binaires précompilés sont disponibles dans la plupart des distrib
 
 ### ID OpenStack
 
-Vous pouvez générer votre identifiant et votre mot de passe OpenStack à l'aide de ce [guide](../../../public-cloud/configure_user_access_to_horizon/).
+Vous pouvez générer votre identifiant et votre mot de passe OpenStack à l'aide de ce [guide](../../../public-cloud/creer-un-acces-a-horizon/).
 
-### NomClient
+### TenantName
 
-Le TenantName correspond au nom de votre projet Horizon. Pour obtenir le TenantName, vous devez vous connecter à l'interface Web OpenStack: [https://horizon.cloud.ovh.net/](https://horizon.cloud.ovh.net/){.external}.
+Le TenantName correspond au nom de votre projet Horizon. Pour obtenir le TenantName, vous devez vous connecter à l'interface web OpenStack : [https://horizon.cloud.ovh.net/](https://horizon.cloud.ovh.net/){.external}.
 
-Une fois connecté, TenantName est visible en haut de la page.
+Une fois connecté, le TenantName est visible en haut de la page.
 
 ![horizon](images/image1.png){.thumbnail}
 
@@ -41,9 +41,9 @@ Une fois connecté, TenantName est visible en haut de la page.
 - Mot de passe: {TenantName}.{Username_Openstack}.{Password_Openstack}
 - Port: 22
 
-### Téléchargement de données
+### Téléversement de données
 
-Exemple de ligne de commande si vous avez créé un conteneur PCA dans la région GRA:
+Exemple de ligne de commande si vous avez créé un conteneur PCA dans la région GRA :
 
 ```bash
 user@host:~$ rsync -a /path/to/my/dir pca@gateways.storage.gra.cloud.ovh.net:/container
@@ -53,9 +53,9 @@ user@host:~$
 
 ### Téléchargement des données
 
-OVHcloud Public Cloud Archive délivre un stockage de données à faible coût, en échange d'une latence accrue dans le processus de récupération. Pour accéder à votre archive, une demande d'extraction doit être reçue avec les noms de conteneur et d'archive auxquels elle se rapporte.
+OVHcloud Public Cloud Archive propose un stockage de données à faible coût, en échange d'une latence accrue dans le processus de récupération. Pour accéder à votre archive, une demande d'extraction doit être reçue avec les noms de conteneur et d'archive auxquels elle se rapporte.
 
-Une fois votre archive extraite, vous pouvez la télécharger dans les 24 heures avec un débit illimité et une fréquence d'accès illimitée. Après cette période de récupération, l'archive sera de nouveau archivée.
+Une fois votre archive extraite, vous pouvez la télécharger pendant 24 heures avec un débit illimité et une fréquence d'accès illimitée. Après cette période de récupération, l'archive sera de nouveau verrouillée.
 
 ```bash
 user@host:~$ rsync -a pca@gateways.storage.gra.cloud.ovh.net:/container
@@ -65,29 +65,29 @@ user@host:~$
 
 ### Informations supplémentaires: Options Rsync
 
-Puisque le serveur Rsync a été corrigé pour fonctionner avec l'API Swift, ces options seront appliquées côté serveur pour correspondre au comportement du serveur principal de stockage d'objets:
+Puisque le serveur Rsync a été patché pour fonctionner avec l'API Swift, ces options seront appliquées côté serveur pour correspondre au comportement du serveur principal de stockage d'objets :
 
-> --inplace: Au lieu de la méthode par défaut de création d'une nouvelle copie du fichier et de son déplacement à la fin, Rsync écrit les données mises à jour directement dans le fichier de destination.
+> --inplace : Au lieu de la méthode par défaut qui consiste à créer une nouvelle copie du fichier puis à la déplacer une fois le processus terminé, Rsync écrit les données mises à jour directement dans le fichier de destination.
 >
-> -W, --whole-file: Désactive l'algorithme de transfert delta de Rsync et envoyez le fichier entier en l'état.
+> -W, --whole-file: Désactive l'algorithme de transfert delta de Rsync et envoie le fichier entier en l'état.
 
 En outre, seul un sous-ensemble d'options est autorisé côté client:
 
-> -a, --archive: Activer le mode d'archivage.
+> -a, --archive: Active le mode d'archivage.
 >
-> -r, --recursive: Copier les répertoires de manière récursive.
+> -r, --recursive: Copie les répertoires de manière récursive.
 >
-> -v, --verbose: Augmenter la quantité d'informations fournies lors du transfert.
+> -v, --verbose: Augmente la quantité d'informations qui vous sont fournies lors du transfert.
 >
-> --del, --delete: Supprimer les fichiers superflus du répertoire de destination.
+> --del, --delete: Supprime les fichiers superflus du répertoire de destination.
 >
-> -P, --progress: Imprimer les informations indiquant la progression du transfert.
+> -P, --progress: Imprime les informations indiquant la progression du transfert.
 
 
-## Allez plus loin
+## Aller plus loin
 
-[Documentation de l'API d'archivage cloud](https://docs.ovh.com/gb/en/storage/pca/api/)
+[Particularités de l’API Openstack Swift sur Cloud Archive](https://docs.ovh.com/ca/fr/storage/pca/api/)
 
-[Page de manuel Rsync](https://linux.die.net/man/1/rsync)
+[Page d'accueil de Rsync](https://linux.die.net/man/1/rsync)
 
-Rejoignez notre communauté d'utilisateurs sur <https://community.ovh.com/en/>.
+Rejoignez notre communauté d'utilisateurs sur <https://community.ovh.com/>.
